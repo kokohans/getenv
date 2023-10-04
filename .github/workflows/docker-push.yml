@@ -23,7 +23,7 @@ jobs:
       
     - name: Get date Tag
       id: date
-      run: echo "$(date +%s)"
+      run: echo "::set-output name=date::$(date +%s)"
       
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag $REPO_NAME:${{ steps.date.outputs.date }}
