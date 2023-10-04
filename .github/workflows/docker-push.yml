@@ -21,12 +21,8 @@ jobs:
         REPO_NAME: ${{secrets.DOCKER_HUB_REPO_NAME}}
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       
-    - name: Get date Tag
-      id: date
-      run: echo "::set-output name=date::$(date +%s)"
-      
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $REPO_NAME
+      run: docker build -t $REPO_NAME:latest .
       
     - name: Docker Push
       run: docker push $REPO_NAME
