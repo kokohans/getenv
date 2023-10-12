@@ -5,7 +5,7 @@ import os
 
 def get_info():
     info = {}
-    suptime = os.popen('uptime').read()[:-1].split(" ")[3].rstrip(",").split(":")
+    suptime = os.popen('uptime').read()[:-1].split(" ")[1].split(":")
 
     info['hostname'] = socket.getfqdn()
     info['addr'] = socket.gethostbyname(socket.gethostname())
