@@ -21,3 +21,11 @@ def get_info():
     info['python-version'] = platform.python_version()
 
     return info
+
+def get_health():
+
+    info = {}
+
+    info['system_status'] = os.getenv('DESIRE')
+
+    return info
